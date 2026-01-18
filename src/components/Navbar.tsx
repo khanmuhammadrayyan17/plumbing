@@ -14,7 +14,9 @@ export default function Navbar() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 80; // Account for navbar height (lg:h-20 = 80px)
+      // Responsive navbar height: 64px on mobile, 80px on desktop (lg+)
+      const isMobile = window.innerWidth < 1024; // lg breakpoint is 1024px
+      const navbarHeight = isMobile ? 64 : 80;
       const elementPosition = element.offsetTop - navbarHeight;
       
       window.scrollTo({
