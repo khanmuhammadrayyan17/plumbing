@@ -5,6 +5,7 @@ import WhyUs from '../components/WhyUs';
 import Services from '../components/Services';
 import HowItWorks from '../components/HowItWorks';
 import Footer from '../components/Footer';
+import FloatingCallButton from '../components/FloatingCallButton';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <HowItWorks />
       <Footer />
+      <FloatingCallButton />
     </div>
   );
 }

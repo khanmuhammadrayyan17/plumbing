@@ -1,4 +1,7 @@
+'use client';
+
 import { Phone, Calendar, ArrowRight } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
 const steps = [
   {
@@ -19,10 +22,22 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const { ref: howItWorksRef, isInView: howItWorksInView } = useInView({ 
+    threshold: 0.1, 
+    triggerOnce: true 
+  });
+
   return (
-    <section className="py-20 bg-slate-50">
+    <section 
+      ref={howItWorksRef}
+      className="py-20 bg-slate-50"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          howItWorksInView 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-0 transform translate-y-12'
+        }`}>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             How It Works
           </h2>
@@ -32,7 +47,11 @@ export default function HowItWorks() {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className={`grid md:grid-cols-3 gap-8 mb-16 transition-all duration-1000 delay-300 ${
+            howItWorksInView 
+              ? 'opacity-100 transform translate-y-0' 
+              : 'opacity-0 transform translate-y-12'
+          }`}>
             {steps.map((step, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 mx-auto">
@@ -66,10 +85,13 @@ export default function HowItWorks() {
               Schedule Your Service
             </button>
             
-            <button className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300 flex items-center gap-3">
+            <a 
+              href="tel:+1-586-337-8877"
+              className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300 flex items-center gap-3"
+            >
               <Phone className="w-6 h-6" />
-              Call Lawrence Plumbing Now
-            </button>
+              Call Tony's Quality Plumbing Now
+            </a>
           </div>
         </div>
       </div>

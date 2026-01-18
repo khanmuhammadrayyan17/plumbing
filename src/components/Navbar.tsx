@@ -28,23 +28,18 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-lg">
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20 px-4 lg:px-0">
           {/* Company Name/Logo */}
           <div className="flex-shrink-0">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="flex items-center gap-3 text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors cursor-pointer"
+              className="group flex items-center gap-3 text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-all duration-300 cursor-pointer"
             >
-              <Image 
-                src="/Gemini_Generated_Image_y51o0cy51o0cy51o.png"
-                alt="Lawrence Plumbing Logo"
-                width={50}
-                height={50}
-                className="w-8 h-8 lg:w-13 lg:h-13"
-              />
-              Lawrence Plumbing, Inc.
+              <span className="bg-gradient-to-r from-slate-900 to-blue-900 bg-clip-text text-transparent">
+                Tony's Quality Plumbing LLC
+              </span>
             </button>
           </div>
 
@@ -52,40 +47,44 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="relative text-slate-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 group"
             >
               Services
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 group-hover:w-full transition-all duration-300"></span>
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="relative text-slate-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 group"
             >
               Why Choose Us
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 group-hover:w-full transition-all duration-300"></span>
             </button>
             <button 
               onClick={() => scrollToSection('reviews')}
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="relative text-slate-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 group"
             >
               Reviews
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 group-hover:w-full transition-all duration-300"></span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="relative text-slate-700 hover:text-blue-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 group"
             >
               Contact
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 group-hover:w-full transition-all duration-300"></span>
             </button>
             
             {/* CTA Buttons */}
-            <div className="flex items-center space-x-3 ml-6">
+            <div className="flex items-center space-x-4 ml-8">
               <a 
-                href="tel:555-123-4567"
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+                href="tel:+1-586-337-8877"
+                className="group flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                 Call Now
               </a>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
+              <button className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
+                <Calendar className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                 Schedule
               </button>
             </div>
@@ -95,9 +94,12 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-slate-700 hover:text-blue-600 transition-colors"
+              className="group p-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? 
+                <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" /> : 
+                <Menu className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+              }
             </button>
           </div>
         </div>
@@ -134,7 +136,7 @@ export default function Navbar() {
               {/* Mobile CTA Buttons */}
               <div className="pt-4 space-y-2">
                 <a 
-                  href="tel:555-123-4567"
+                  href="tel:+1-586-337-8877"
                   className="flex items-center justify-center gap-2 w-full px-3 py-2 text-blue-600 hover:text-blue-700 font-semibold border border-blue-600 rounded-md transition-colors"
                 >
                   <Phone className="w-4 h-4" />

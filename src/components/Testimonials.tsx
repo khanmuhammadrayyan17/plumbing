@@ -2,37 +2,42 @@
 
 import { Star, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
+import { useInView } from '../hooks/useInView';
 
-// Real 5-star Google reviews for Lawrence Plumbing and Backflow, Inc.
+// Real 5-star Google reviews for Tony's Quality Plumbing LLC
 const testimonials = [
   {
-    name: "Pedro Szymanski",
-    location: "5 reviews",
+    name: "Gjeuland Marku",
+    location: "Local Guide · 17 reviews · 7 photos",
     rating: 5,
-    text: "I had an excellent experience with Lawrence Plumbing and Backflow, thanks to Shanon. She replaced my water heater and fixed the water flow in my kitchen faucet with great professionalism and care.",
-    fullText: "I had an excellent experience with Lawrence Plumbing and Backflow, thanks to Shanon. She replaced my water heater and fixed the water flow in my kitchen faucet with great professionalism and care. Shanon does very neat, high-quality work and clearly explains everything, including how to properly maintain the water heater. She provided a fair, transparent price upfront and followed through exactly as promised. Highly recommend—honest, knowledgeable, and truly customer-focused.",
-    date: "2 weeks ago"
-  },
-  {
-    name: "Jim",
-    location: "Local Guide · 7 reviews",
-    rating: 5,
-    text: "What a relief to feel comfortable and not have to worry about being price gouged by our plumber Shannon! Her plumbing skills are outstanding and she is always point on when diagnosing and correcting any plumbing issue.",
-    fullText: "What a relief to feel comfortable and not have to worry about being price gouged by our plumber Shannon! However, that is not the case, when dealing with the big Company plumbing names that have continually overcharged, time after time! They charge $450 more than what Shannon quoted for a water heater. They justify by saying, they have to pay for all of the service trucks they have available! First of all, Shannon will communicate quickly and accurately! Her plumbing skills are outstanding and she is always point on, when diagnosing and correcting any plumbing issue, that I have ever had! She always maintains a professional rapport and gracious manners! She will make it a point to get to your job and will work you into her busy schedule! She has a busy schedule because her reputation is well known throughout our community! That should tell you a lot! You can't go wrong in dealing with Lawrence Plumbing! I guarantee you will be superbly satisfied with the work she does! And always with a smile and friendly attitude!",
+    text: "I would highly recommend using their service. He was on time, did great work and the price was more then reasonable. I definitely plan on hiring him again to do my toilet installation and will be recommending him to friends and family",
+    fullText: "I would highly recommend using their service. He was on time, did great work and the price was more then reasonable. I definitely plan on hiring him again to do my toilet installation and will be recommending him to friends and family",
     date: "4 months ago"
   },
   {
-    name: "Mary Leddy",
+    name: "Jonah Mansour",
+    location: "2 reviews",
+    rating: 5,
+    text: "My cousen referred me and it was the best decision I ever made using this company. Quick and efficient/cost effective workmanship.",
+    fullText: "My cousen referred me and it was the best decision I ever made using this company. Quick and efficient/cost effective workmanship.",
+    date: "8 months ago"
+  },
+  {
+    name: "D V",
     location: "1 review",
     rating: 5,
-    text: "I have been impressed with Shannon's response time, troubleshooting skills, plumbing knowledge & efficiency on three separate repair requests!! Amazing & reasonably priced as well!!",
-    fullText: "I have been impressed with Shannon's response time, troubleshooting skills, plumbing knowledge & efficiency on three separate repair requests!! Most recently, my water heater was leaking in AM, and after contacting Lawrence Plumbing via text, Shannon had my new water heater installed & old one draining for removal by Noon!!! Amazing & reasonably priced as well!!",
-    date: "4 months ago"
+    text: "I highly recommend Tony's Quality Plumbing. Tony and his crew came out on short notice and did an excellent job on replacing the water heater, the sump pump, and the damaged main shutoff valve.",
+    fullText: "I highly recommend Tony's Quality Plumbing. Tony and his crew came out on short notice and did an excellent job on replacing the water heater, the sump pump, and the damaged main shutoff valve. They offered helpful advice on how to prevent future plumbing issues. They are professional, knowledgeable, and work with care. A great experience from start to finish. I would definitely use them again for any plumbing needs.",
+    date: "10 months ago"
   }
 ];
 
 export default function Testimonials() {
   const [expandedReviews, setExpandedReviews] = useState<number[]>([]);
+  const { ref: testimonialsRef, isInView: testimonialsInView } = useInView({ 
+    threshold: 0.1, 
+    triggerOnce: true 
+  });
 
   const toggleReview = (index: number) => {
     setExpandedReviews(prev => 
@@ -62,9 +67,17 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="py-20 bg-slate-50">
+    <section 
+      id="reviews" 
+      ref={testimonialsRef}
+      className="py-20 bg-slate-50"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          testimonialsInView 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-0 transform translate-y-12'
+        }`}>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             Trusted by Local Homeowners
           </h2>
@@ -72,7 +85,7 @@ export default function Testimonials() {
           {/* Google Rating Display */}
           <div className="flex items-center justify-center gap-2 mb-8">
             {renderStars(4.6)}
-            <span className="text-slate-600 font-medium text-lg">4.6 on Google</span>
+            <span className="text-slate-600 font-medium text-lg">4.7 on Google</span>
             <a 
               href="https://www.google.com/search?q=Lawrence+Plumbing+and+Backflow+reviews" 
               target="_blank" 
@@ -91,7 +104,17 @@ export default function Testimonials() {
             const displayText = isExpanded ? testimonial.fullText : testimonial.text;
             
             return (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div 
+                key={index} 
+                className={`group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 border border-transparent hover:border-blue-100/50 hover:-translate-y-2 ${
+                  testimonialsInView 
+                    ? 'opacity-100 transform translate-y-0' 
+                    : 'opacity-0 transform translate-y-8'
+                }`}
+                style={{ 
+                  transitionDelay: `${300 + index * 200}ms` 
+                }}
+              >
                 {/* Star Rating */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
