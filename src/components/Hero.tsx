@@ -9,6 +9,20 @@ export default function Hero() {
     triggerOnce: true 
   });
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const isMobile = window.innerWidth < 1024;
+      const navbarHeight = isMobile ? 64 : 80;
+      const elementPosition = element.offsetTop - navbarHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section 
       id="hero" 
@@ -65,7 +79,10 @@ export default function Hero() {
               ? 'opacity-100 transform translate-y-0' 
               : 'opacity-0 transform translate-y-8'
           }`}>
-            <button className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 flex items-center gap-3 shadow-2xl hover:shadow-blue-500/25 hover:-translate-y-1 hover:scale-105">
+            <button 
+              onClick={() => scrollToSection('schedule')}
+              className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 flex items-center gap-3 shadow-2xl hover:shadow-blue-500/25 hover:-translate-y-1 hover:scale-105"
+            >
               <Calendar className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
               Schedule a Service
             </button>

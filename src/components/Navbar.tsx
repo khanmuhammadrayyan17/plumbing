@@ -83,7 +83,10 @@ export default function Navbar() {
                 <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                 Call Now
               </a>
-              <button className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
+              <button 
+                onClick={() => scrollToSection('schedule')}
+                className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+              >
                 <Calendar className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                 Schedule
               </button>
@@ -142,7 +145,10 @@ export default function Navbar() {
                   <Phone className="w-4 h-4" />
                   Call Now
                 </a>
-                <button className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md font-semibold transition-colors">
+                <button 
+                  onClick={() => scrollToSection('schedule')}
+                  className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md font-semibold transition-colors"
+                >
                   <Calendar className="w-4 h-4" />
                   Schedule Service
                 </button>
