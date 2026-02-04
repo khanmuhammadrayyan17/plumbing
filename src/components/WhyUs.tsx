@@ -55,13 +55,13 @@ export default function WhyUs() {
             : 'opacity-0 transform translate-y-12'
         }`}>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
-            Why Tony's Quality Plumbing LLC
+            Why PlumbingCompany
           </h2>
           
           <div className="text-xl text-slate-600 leading-relaxed space-y-6">
             <p>
               In an industry where homeowners often worry about hidden fees and unnecessary upsells, 
-              Tony's Quality Plumbing LLC takes a different approach.
+              PlumbingCompany takes a different approach.
             </p>
             
             <p>

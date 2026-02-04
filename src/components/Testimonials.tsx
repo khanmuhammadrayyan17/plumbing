@@ -4,7 +4,7 @@ import { Star, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 
-// Real 5-star Google reviews for Tony's Quality Plumbing LLC
+// Real 5-star Google reviews for PlumbingCompany
 const testimonials = [
   {
     name: "Gjeuland Marku",
@@ -26,8 +26,8 @@ const testimonials = [
     name: "D V",
     location: "1 review",
     rating: 5,
-    text: "I highly recommend Tony's Quality Plumbing. Tony and his crew came out on short notice and did an excellent job on replacing the water heater, the sump pump, and the damaged main shutoff valve.",
-    fullText: "I highly recommend Tony's Quality Plumbing. Tony and his crew came out on short notice and did an excellent job on replacing the water heater, the sump pump, and the damaged main shutoff valve. They offered helpful advice on how to prevent future plumbing issues. They are professional, knowledgeable, and work with care. A great experience from start to finish. I would definitely use them again for any plumbing needs.",
+    text: "I highly recommend PlumbingCompany. Their crew came out on short notice and did an excellent job on replacing the water heater, the sump pump, and the damaged main shutoff valve.",
+    fullText: "I highly recommend PlumbingCompany. Their crew came out on short notice and did an excellent job on replacing the water heater, the sump pump, and the damaged main shutoff valve. They offered helpful advice on how to prevent future plumbing issues. They are professional, knowledgeable, and work with care. A great experience from start to finish. I would definitely use them again for any plumbing needs.",
     date: "10 months ago"
   }
 ];
@@ -87,7 +87,7 @@ export default function Testimonials() {
             {renderStars(4.6)}
             <span className="text-slate-600 font-medium text-lg">4.7 on Google</span>
             <a 
-              href="https://www.google.com/maps/place/Tony's+Quality+Plumbing+LLC/@45.0008644,-86.2911978,14z/data=!4m16!1m9!3m8!1s0x8ec359df611c73d9:0xc27e70440403f9cd!2sTony's+Quality+Plumbing+LLC!8m2!3d45.0008644!4d-86.2705984!9m1!1b1!16s%2Fg%2F11nxr7fy3j!3m5!1s0x8ec359df611c73d9:0xc27e70440403f9cd!8m2!3d45.0008644!4d-86.2705984!16s%2Fg%2F11nxr7fy3j?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" 
+              href="https://www.google.com/maps/search/plumbing+company+reviews" 
               target="_blank" 
               rel="noopener noreferrer"
               className="ml-2 text-blue-600 hover:text-blue-700 transition-colors"
@@ -151,7 +151,7 @@ export default function Testimonials() {
         {/* Call-to-action to view more reviews */}
         <div className="text-center mt-12">
           <a
-            href="https://www.google.com/maps/place/Tony's+Quality+Plumbing+LLC/@45.0008644,-86.2911978,14z/data=!4m16!1m9!3m8!1s0x8ec359df611c73d9:0xc27e70440403f9cd!2sTony's+Quality+Plumbing+LLC!8m2!3d45.0008644!4d-86.2705984!9m1!1b1!16s%2Fg%2F11nxr7fy3j!3m5!1s0x8ec359df611c73d9:0xc27e70440403f9cd!8m2!3d45.0008644!4d-86.2705984!16s%2Fg%2F11nxr7fy3j?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+            href="https://www.google.com/maps/search/plumbing+company+reviews"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 shadow-lg"

@@ -88,7 +88,7 @@ export default function Hero() {
             </button>
             
             <a 
-              href="tel:+1-586-337-8877"
+              href="tel:+1-555-123-4567"
               className="group border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 hover:scale-105 hover:shadow-xl"
             >
               <Phone className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />

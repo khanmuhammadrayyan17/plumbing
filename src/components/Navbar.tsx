@@ -31,14 +31,24 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-lg">
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20 px-4 lg:px-0">
-          {/* Company Name/Logo */}
+          {/* Company Logo/Name */}
           <div className="flex-shrink-0">
             <button 
               onClick={() => scrollToSection('hero')}
               className="group flex items-center gap-3 text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-all duration-300 cursor-pointer"
             >
+              <div className="relative w-8 h-8 lg:w-10 lg:h-10">
+                <Image
+                  src="/logo.png"
+                  alt="PlumbingCompany Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  priority
+                />
+              </div>
               <span className="bg-gradient-to-r from-slate-900 to-blue-900 bg-clip-text text-transparent">
-                Tony's Quality Plumbing LLC
+                PlumbingCompany
               </span>
             </button>
           </div>
@@ -77,7 +87,7 @@ export default function Navbar() {
             {/* CTA Buttons */}
             <div className="flex items-center space-x-4 ml-8">
               <a 
-                href="tel:+1-586-337-8877"
+                href="tel:+1-555-123-4567"
                 className="group flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50"
               >
                 <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
@@ -139,7 +149,7 @@ export default function Navbar() {
               {/* Mobile CTA Buttons */}
               <div className="pt-4 space-y-2">
                 <a 
-                  href="tel:+1-586-337-8877"
+                  href="tel:+1-555-123-4567"
                   className="flex items-center justify-center gap-2 w-full px-3 py-2 text-blue-600 hover:text-blue-700 font-semibold border border-blue-600 rounded-md transition-colors"
                 >
                   <Phone className="w-4 h-4" />

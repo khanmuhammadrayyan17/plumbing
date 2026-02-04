@@ -178,12 +178,12 @@ export default function ScheduleService() {
           </p>
           <p className="text-base text-slate-300 max-w-2xl mx-auto">
             <span className="font-semibold">Hablamos español</span> • Call{' '}
-            <a href="tel:+1-586-337-8877" className="text-blue-300 hover:text-blue-200 font-semibold">
-              +1 (586) 337-8877
+            <a href="tel:+1-555-123-4567" className="text-blue-300 hover:text-blue-200 font-semibold">
+              +1 (555) 123-4567
             </a>{' '}
             or email{' '}
-            <a href="mailto:info@tonysqualityplumbing.com" className="text-blue-300 hover:text-blue-200 font-semibold">
-              info@tonysqualityplumbing.com
+            <a href="mailto:info@plumbingcompany.com" className="text-blue-300 hover:text-blue-200 font-semibold">
+              info@plumbingcompany.com
             </a>{' '}
             to schedule a weekend appointment.
           </p>
@@ -419,7 +419,7 @@ export default function ScheduleService() {
                 </button>
                 
                 <a
-                  href="tel:+1-586-337-8877"
+                  href="tel:+1-555-123-4567"
                   className="group flex-1 border-2 border-slate-300 text-slate-700 hover:border-blue-600 hover:text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1"
                 >
                   <Phone className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
